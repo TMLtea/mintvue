@@ -6,7 +6,9 @@ import 'mint-ui/lib/style.css'
 import './assets/reset.css'
 import App from './App'
 import router from './router'
+import qs from 'qs';
 
+Vue.prototype.$qs = qs;
 Vue.config.productionTip = false
 
 Vue.component(Button.name, Button)

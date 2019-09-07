@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'login',
   data(){
@@ -28,7 +30,20 @@ export default {
   methods: { 
     SubBtn:function(){
     console.log(this.form.email)
-    this.$router.push('/index');
+    let postData = this.$qs.stringify({
+            itemId: 7214297708692480,        // 参数 firstName
+            star: 5,    // 参数 lastName
+            remark: "服务良好，不错下次再来"
+    });
+  console.log(postData)
+    axios.post('http://localhost:8180/fcm-app/component/addOrderComments', postData)
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    
     }
   }
 }
